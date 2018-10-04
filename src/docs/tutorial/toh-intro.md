@@ -1,4 +1,4 @@
-<h1 id="tutorial-tour-of-heroes">Tour of Heroes Tutorial</h1>
+# Tour of Heroes Tutorial
 
 <aside>
 <p>Demonstrates both the <code>&ltcurrent-location></code> and the

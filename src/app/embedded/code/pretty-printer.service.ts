@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/first';
-import 'rxjs/add/operator/share';
+import { Observable } from 'rxjs';
+import { from } from 'rxjs';
+import { 
+	map, 
+	first, 
+	share
+} from 'rxjs/operators';
 
 declare const System;
 
@@ -19,7 +21,7 @@ export class PrettyPrinter {
   private prettyPrintOne: Observable<PrettyPrintOne>;
 
   constructor() {
-    this.prettyPrintOne = fromPromise(this.getPrettyPrintOne()).share();
+    this.prettyPrintOne = from(this.getPrettyPrintOne()).pipe(share());
   }
 
   private getPrettyPrintOne(): Promise<PrettyPrintOne> {
@@ -48,7 +50,7 @@ export class PrettyPrinter {
    * @returns Observable<string> - Observable of formatted code
    */
   formatCode(code: string, language?: string, linenums?: number | boolean) {
-    return this.prettyPrintOne.map(ppo => {
+    return this.prettyPrintOne.pipe(map(ppo => {
       try {
         return ppo(code, language, linenums);
       } catch (err) {
@@ -56,7 +58,6 @@ export class PrettyPrinter {
         console.error(msg, err);
         throw new Error(msg);
       }
-    })
-    .first(); // complete immediately
+    })).pipe(first()); // complete immediately
   }
 }

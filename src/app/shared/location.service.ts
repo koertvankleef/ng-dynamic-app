@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Location, PlatformLocation } from '@angular/common';
 
-import { Observable } from 'rxjs/Observable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/map';
+import { Observable, ReplaySubject } from 'rxjs';
+import { 
+	map, 
+	switchMap 
+} from 'rxjs/operators';
 
 @Injectable()
 export class LocationService {
@@ -13,11 +13,11 @@ export class LocationService {
   private readonly urlParser = document.createElement('a');
   private urlSubject = new ReplaySubject<string>(1);
 
-  currentUrl = this.urlSubject
-    .map(url => this.stripSlashes(url));
+  currentUrl = this.urlSubject.pipe(
+    map(url => this.stripSlashes(url)));
 
-  currentPath = this.currentUrl
-    .map(url => url.match(/[^?#]*/)[0]); // strip query and hash
+  currentPath = this.currentUrl.pipe(
+    map(url => url.match(/[^?#]*/)[0])); // strip query and hash
 
   constructor(
     private location: Location,

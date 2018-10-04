@@ -1,0 +1,97 @@
+/* Master Styles, based on Angular docs samples */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 200%;
+}
+h2, h3 {
+  color: #497FB5; /*rgb(73, 127, 181);*/
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+input[text], button {
+  color: #666;
+  font-family: Cambria, Georgia;
+}
+a {
+  cursor: pointer;
+}
+
+aside {
+  background-color: #eee;
+  border: 1px solid #039be5;
+  border-radius: 4px;
+  margin: 16px auto;
+  padding: 10px;
+}
+
+aside.outline {
+  background-color: white;
+}
+
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+/* Navigation link styles */
+.nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+.nav a:visited, a:link {
+  color: #607D8B;
+}
+.nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+.nav a.active {
+  color: #039be5;
+}
+
+td.nav {
+  border-right: 2px solid powderblue;
+  padding-top: 20px;
+  vertical-align: top;
+}
+td.viewer {
+  padding-left: 20px;
+  vertical-align: top;
+  width: 90%;
+}
+td.viewer div {
+  max-width: 700px;
+}
+
+.error {
+  color: red;
+}
+
+.title {
+  color: black;
+  font-size: 250%;
+  max-width: 800px;
+  text-align: center;
+}

@@ -1,4 +1,4 @@
-<h1>Awesome Fortune</h1>
+# Awesome Fortune
 
 <aside>
   Demonstrates that a component within projected content does not work.
@@ -8,12 +8,14 @@
   would apply its awfulness to the result of the FortuneComponent and
   some portion of the Questionnaire.</p>
 
-<code>
-  &lt;awesome>
-    &lt;fortune>&lt;/fortune>
-    &lt;questionnaire>&lt;/questionnaire>
-  &lt;/awesome>
-</code>
+<code-example title="hero.service.html" linenums="false">
+
+	<awesome>
+		<fortune></fortune>
+		<questionnaire></questionnaire>
+	</awesome>
+
+</code-example>
 
 <aside>
   <awesome>
